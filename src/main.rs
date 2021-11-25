@@ -4,8 +4,9 @@ use std::path::Path;
 use std::process::Command;
 
 mod crypt;
-mod colors;
+mod utils;
 
+use utils::colors;
 use colors::Colors::*;
 
 const PREFIX_COLOR: &str = CYAN.value();
@@ -40,7 +41,7 @@ fn spawn_shell() {
             }
 
             "showcolors" | "colors" => {
-                colors::show_colors();
+                utils::colors::show_colors();
             }
 
             "base64" | "b64" => {
