@@ -27,7 +27,7 @@ fn spawn_shell() {
         // is interpreted as args to the command
         let mut parts = input.trim().split_whitespace();
         let command = parts.next().unwrap();
-        let mut args = parts;
+        let args = parts;
 
         match command {
             "cd" => {
@@ -41,6 +41,10 @@ fn spawn_shell() {
 
             "showcolors" | "colors" => {
                 colors::show_colors();
+            }
+
+            "base64" | "b64" => {
+                crypt::base64::execute(args);
             }
 
             "exit" => return,
