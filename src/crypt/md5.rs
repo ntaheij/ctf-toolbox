@@ -1,11 +1,13 @@
 use md5;
 
 use crate::colors::Colors::*;
+use crate::utils::args::get_args_spaces;
 
 pub fn execute(mut args: std::str::SplitWhitespace) {
+
   match args.next() {
-    Some(input) => {
-      let output = encode(input);
+    Some(_) => {
+      let output = encode(get_args_spaces(args));
       println!("{:x}", output);
     }
 
@@ -18,6 +20,6 @@ pub fn execute(mut args: std::str::SplitWhitespace) {
   }
 }
 
-pub fn encode(to_encode: &str) -> md5::Digest {
+pub fn encode(to_encode: String) -> md5::Digest {
    return md5::compute(to_encode);
 }

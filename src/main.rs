@@ -24,8 +24,9 @@ fn spawn_shell() {
         let mut input = String::new();
         stdin().read_line(&mut input).unwrap();
 
-        let mut args = input.trim().split_whitespace();
-        let command = args.next().unwrap();
+        let mut parts = input.trim().split_whitespace();
+        let command = parts.next().unwrap();
+        let args = parts;
 
         match command {
             "cd" => {

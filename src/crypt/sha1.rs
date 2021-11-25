@@ -1,11 +1,12 @@
 use sha1::{Sha1};
 
 use crate::colors::Colors::*;
+use crate::utils::args::get_args_spaces;
 
 pub fn execute(mut args: std::str::SplitWhitespace) {
   match args.next() {
-    Some(input) => {
-      let output = encode(input);
+    Some(_) => {
+      let output = encode(get_args_spaces(args));
       println!("{}", output);
     }
 
@@ -18,7 +19,7 @@ pub fn execute(mut args: std::str::SplitWhitespace) {
   }
 }
 
-pub fn encode(to_encode: &str) -> String {
+pub fn encode(to_encode: String) -> String {
   let mut hasher = Sha1::new();
   hasher.update(to_encode.as_bytes());
 
