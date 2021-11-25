@@ -47,6 +47,10 @@ fn spawn_shell() {
                 crypt::base64::execute(args);
             }
 
+            "sha1" | "s1" => {
+                crypt::sha1::execute(args);
+            }
+
             "exit" => return,
 
             _ => {
