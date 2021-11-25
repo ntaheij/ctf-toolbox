@@ -24,15 +24,11 @@ fn spawn_shell() {
         let mut input = String::new();
         stdin().read_line(&mut input).unwrap();
 
-        // everything after the first whitespace character
-        // is interpreted as args to the command
-        let mut parts = input.trim().split_whitespace();
-        let command = parts.next().unwrap();
-        let args = parts;
+        let mut args = input.trim().split_whitespace();
+        let command = args.next().unwrap();
 
         match command {
             "cd" => {
-                // default to `/` as new directory if one was not provided
                 let new_dir = args.peekable().peek().map_or("/", |x| *x);
                 let root = Path::new(new_dir);
                 if let Err(e) = env::set_current_dir(&root) {
@@ -40,21 +36,13 @@ fn spawn_shell() {
                 }
             }
 
-            "showcolors" | "colors" => {
-                utils::colors::show_colors();
-            }
+            "showcolors" | "colors" => { utils::colors::show_colors(); }
 
-            "base64" | "b64" => {
-                crypt::base64::execute(args);
-            }
+            "base64" | "b64" => { crypt::base64::execute(args); }
 
-            "sha1" | "s1" => {
-                crypt::sha1::execute(args);
-            }
+            "sha1" | "s1" => { crypt::sha1::execute(args); }
 
-            "md5" => {
-                crypt::md5::execute(args);
-            }
+            "md5" => { crypt::md5::execute(args); }
 
             "exit" => return,
 

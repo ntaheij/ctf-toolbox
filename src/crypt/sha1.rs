@@ -15,7 +15,7 @@ pub fn execute(mut args: std::str::SplitWhitespace) {
                 DARKRED.value(), RESET.value(), RED.value(), RESET.value()
         );
     }
-}
+  }
 }
 
 pub fn encode(to_encode: &str) -> String {

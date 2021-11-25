@@ -71,9 +71,4 @@ pub fn show_colors() {
   ] {
     println!("{}", color.value().to_owned() + "This is " + color.value() + "colored text" + Colors::RESET.value());
   }
-
-  // Colors.values().for_each(|color| {
-  //   println!("{}", color.value() + "This is " + color.value() + "colored text" + Colors::RESET.value());
-  // });
-
 }

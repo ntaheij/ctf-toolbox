@@ -15,9 +15,9 @@ pub fn execute(mut args: std::str::SplitWhitespace) {
                 DARKRED.value(), RESET.value(), RED.value(), RESET.value()
         );
     }
-}
+  }
 }
 
 pub fn encode(to_encode: &str) -> md5::Digest {
-   return md5::compute(to_encode)
+   return md5::compute(to_encode);
 }

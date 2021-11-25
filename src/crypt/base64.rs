@@ -13,7 +13,7 @@ pub fn execute(mut args: std::str::SplitWhitespace) {
         println!("{}", output);
     }
 
-    Some(_) | None => {
+    _ => {
         eprintln!(
             "{}Incorrect Usage.\n{}{}Please use: b64 [encode/decode] [value] {}", 
                 DARKRED.value(), RESET.value(), RED.value(), RESET.value()
