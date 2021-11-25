@@ -51,6 +51,10 @@ fn spawn_shell() {
                 crypt::sha1::execute(args);
             }
 
+            "md5" => {
+                crypt::md5::execute(args);
+            }
+
             "exit" => return,
 
             _ => {
