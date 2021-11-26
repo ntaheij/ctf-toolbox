@@ -3,10 +3,12 @@ use std::io::*;
 use std::path::Path;
 use std::process::Command;
 
-mod crypt;
 mod utils;
+mod crypt;
+mod general;
 
 use utils::colors;
+use general::help;
 use colors::Colors::*;
 
 const PREFIX_COLOR: &str = CYAN.value();
@@ -48,6 +50,8 @@ fn spawn_shell() {
             "sha1" | "s1" => { crypt::sha1::execute(args); }
 
             "md5" => { crypt::md5::execute(args); }
+
+            "help" => { help::execute(); }
 
             "exit" => return,
 
