@@ -1,4 +1,7 @@
 #[allow(dead_code)]
+use enum_iterator::IntoEnumIterator;
+
+#[derive(Debug, IntoEnumIterator, PartialEq)]
 pub enum Colors {
   RESET,
   RED,
@@ -48,27 +51,7 @@ impl Colors {
 }
 
 pub fn show_colors() {
-  // Loop over all colors and show example text
-  for color in &[
-    Colors::RED,
-    Colors::DARKRED,
-    Colors::CYAN,
-    Colors::DARKCYAN,
-    Colors::GREEN,
-    Colors::DARKGREEN,
-    Colors::YELLOW,
-    Colors::DARKYELLOW,
-    Colors::BLUE,
-    Colors::DARKBLUE,
-    Colors::MAGENTA,
-    Colors::DARKMAGENTA,
-    Colors::WHITE,
-    Colors::DARKWHITE,
-    Colors::BOLD,
-    Colors::UNDERLINE,
-    Colors::REVERSE,
-    Colors::HIDDEN,
-  ] {
+  for color in Colors::into_enum_iter() {
     println!("{}", color.value().to_owned() + "This is " + color.value() + "colored text" + Colors::RESET.value());
   }
 }
