@@ -51,7 +51,7 @@ fn spawn_shell() {
 
             "md5" => { crypt::md5::execute(args); }
 
-            "help" => { help::execute(); }
+            "help" => { help::execute(args); }
 
             "exit" => return,
 
