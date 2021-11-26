@@ -23,7 +23,13 @@ impl Commands {
 pub fn execute(mut args: std::str::SplitWhitespace) {
   match args.next() {
     Some("c") | Some("crypt") => {
-        
+        for command in &[
+          Commands::B64,
+          Commands::SHA1,
+          Commands::MD5
+        ] {
+          println!("{}", command.value());
+        }
     }
 
     Some("all") => {
