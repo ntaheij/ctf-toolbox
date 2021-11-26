@@ -6,12 +6,16 @@ use crate::colors::Colors::*;
 #[derive(Debug, IntoEnumIterator, PartialEq)]
 pub enum Commands {
   B64,
+  SHA1,
+  MD5
 }
 
 impl Commands {
   pub const fn value(&self) -> &str {
     match self {
       Commands::B64 => "b64 [encode/decode] [value]",
+      Commands::SHA1 => "sha1 [value]",
+      Commands::MD5 => "md5 [value]",
     }
   }
 }

@@ -2,6 +2,7 @@ use md5;
 
 use crate::colors::Colors::*;
 use crate::utils::args::get_args_spaces;
+use crate::general::help::Commands;
 
 pub fn execute(mut args: std::str::SplitWhitespace) {
 
@@ -12,10 +13,10 @@ pub fn execute(mut args: std::str::SplitWhitespace) {
     }
 
     None => {
-        eprintln!(
-            "{}Incorrect Usage.\n{}{}Please use: md5 [value] {}", 
-                DARKRED.value(), RESET.value(), RED.value(), RESET.value()
-        );
+      eprintln!(
+        "{}Incorrect Usage.\n{0}{1}Please use: {2} {1}", 
+            DARKRED.value(), RESET.value(), Commands::MD5.value()
+    );
     }
   }
 }

@@ -2,6 +2,7 @@ extern crate base64;
 
 use crate::colors::Colors::*;
 use crate::utils::args::get_args_spaces;
+use crate::general::help::Commands;
 
 pub fn execute(mut args: std::str::SplitWhitespace) {
   match args.next() {
@@ -16,8 +17,8 @@ pub fn execute(mut args: std::str::SplitWhitespace) {
 
     _ => {
         eprintln!(
-            "{}Incorrect Usage.\n{}{}Please use: b64 [encode/decode] [value] {}", 
-                DARKRED.value(), RESET.value(), RED.value(), RESET.value()
+            "{}Incorrect Usage.\n{0}{1}Please use: {2} {1}", 
+                DARKRED.value(), RESET.value(), Commands::B64.value()
         );
     }
   }
